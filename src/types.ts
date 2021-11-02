@@ -34,6 +34,11 @@ export type Transformer = (code: string, id: string, path: string, query: Record
 
 export type SupportedTransformer = 'vue3' | 'vue2'
 
+export interface ComponentsApi {
+  findComponent: (name: string, filename?: string) => Promise<ComponentInfo | undefined>
+  stringifyImport: (info: ComponentInfo) => string
+}
+
 /**
  * Plugin options.
  */
